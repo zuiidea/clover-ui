@@ -1,0 +1,141 @@
+.clearfix() {
+  &:after,
+  &:before {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+.hairline(@position, @color) when (@position = top) {
+  &:before {
+    content: '';
+    position: absolute;
+    left: 13px;
+    top: 0;
+    bottom: auto;
+    right: auto;
+    height: 1px;
+    width: e("calc(100% - 26px)");
+    background-color: @color;
+    display: block;
+    z-index: 15;
+    .transform-origin(50% 0%);
+    .transform(scaleY(0.3333));
+  }
+}
+
+.hairline(@position, @color) when (@position = left) {
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: auto;
+    right: auto;
+    width: 1px;
+    height: 100%;
+    background-color: @color;
+    display: block;
+    z-index: 15;
+    .transform-origin(0% 50%);
+    .transform(scaleX(0.5));
+  }
+}
+
+.hairline(@position, @color) when (@position = bottom) {
+  &:after {
+    content: '';
+    position: absolute;
+    left: 13px;
+    bottom: 0;
+    right: auto;
+    top: auto;
+    height: 1px;
+    width: e("calc(100% - 26px)");
+    background-color: @color;
+    display: block;
+    z-index: 15;
+    .transform-origin(50% 0%);
+    .transform(scaleY(0.3333));
+  }
+}
+
+(@full = true),
+.hairline(@position, @color, @full) when (@position = bottom) {
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: auto;
+    top: auto;
+    height: 1px;
+    width: 100%;
+    background-color: @color;
+    display: block;
+    z-index: 15;
+    .transform-origin(50% 100%);
+    .transform(scaleY(0.3333));
+  }
+}
+
+.hairline(@position, @color) when (@position = right) {
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: auto;
+    bottom: auto;
+    width: 1px;
+    height: 100%;
+    background-color: @color;
+    display: block;
+    z-index: 15;
+    .transform-origin(100% 50%);
+    .transform(scaleX(0.5));
+  }
+}
+
+.hairline-remove(@position) when not (@position = left) and not (@position = top) {
+  &:after {
+    display: none;
+  }
+}
+
+.hairline-remove(@position) when not (@position = right) and not (@position = bottom) {
+  &:before {
+    display: none;
+  }
+}
+
+.hairline-color(@position, @color) when not (@position = left) and not (@position = top) {
+  &:after {
+    background-color: @color;
+  }
+}
+
+.hairline-color(@position, @color) when not (@position = right) and not (@position = bottom) {
+  &:before {
+    background-color: @color;
+  }
+}
+
+.encoded-svg-background(@svg) {
+  @url: `encodeURIComponent(@{svg})`;
+  background-image: url("data:image/svg+xml;charset=utf-8,@{url}");
+}
+
+.no-scrollbar() {
+  &::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    -webkit-appearance: none;
+    opacity: 0 !important;
+  }
+}

@@ -1,0 +1,42 @@
+@import "./vars.less";
+
+body,
+html {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Microsoft YaHei Light",Roboto, Noto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #404040;
+  font-size: 14px;
+  line-height: 1.5;
+  width: 100%;
+  -webkit-text-size-adjust: 100%;
+  background: #f8f8f8;
+}
+
+* {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-touch-callout: none;
+}
+
+a,
+input,
+select,
+textarea {
+  outline: 0;
+}
+
+a {
+  text-decoration: none;
+  color: @themeColor;
+}
+
+p {
+  margin: 1em 0;
+}
