@@ -3,9 +3,8 @@
   "version": "0.0.1",
   "description": "clover UI",
   "scripts": {
-    "start": "webpack-dev-server",
-    "dev": "cross-env NODE_ENV=production webpack-dev-server --env.prod=true",
-    "build": "cross-env NODE_ENV=production webpack --env.prod=true"
+    "start": "cross-env webpack-dev-server --env=development",
+    "build": "cross-env  webpack --env=production"
   },
   "keywords": [
     "mobile",

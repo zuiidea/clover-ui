@@ -1,24 +1,14 @@
 const webpack = require('webpack')
 const path = require('path')
-const sourcePath = path.join(__dirname, './src')
-const staticsPath = path.join(__dirname, './dist')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const HtmlWebpackTemplate = require('html-webpack-template')
 
-module.exports = function (env) {
-  const nodeEnv = env && env.prod ? 'production' : 'development'
-  const isProd = nodeEnv === 'production'
+const sourcePath = path.join(__dirname, 'src')
+const staticsPath = path.join(__dirname, 'dist')
 
+module.exports = function (env) {
+  const production = env === 'production'
   const plugins = [
-    // new webpack.optimize.CommonsChunkPlugin({
-    //   name: 'vendor',
-    //   minChunks: Infinity,
-    //   filename: 'vendor.bundle.js'
-    // }),
-    new webpack.EnvironmentPlugin({
-      NODE_ENV: nodeEnv
-    }),
-    new webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({
       hash: true,
       mobile: true,
@@ -38,7 +28,7 @@ module.exports = function (env) {
     }),
   ]
 
-  if (isProd) {
+  if (production) {
     plugins.push(
       new webpack.LoaderOptionsPlugin({
         minimize: true,
@@ -69,7 +59,7 @@ module.exports = function (env) {
   }
 
   return {
-    devtool: isProd ? 'source-map' : 'eval',
+    devtool: production ? 'source-map' : 'eval',
     context: sourcePath,
     entry:'./index.js',
     output: {
@@ -102,10 +92,10 @@ module.exports = function (env) {
       ]
     },
     resolve: {
-      extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx'],
+      extensions: ['.js'],
       modules: [
-        path.resolve(__dirname, 'node_modules'),
-        sourcePath
+        'node_modules',
+         sourcePath
       ],
       alias:{
         pages:path.resolve(__dirname, 'src/pages'),
@@ -116,27 +106,13 @@ module.exports = function (env) {
 
     plugins,
 
-    performance: isProd && {
-      maxAssetSize: 100,
-      maxEntrypointSize: 300,
-      hints: 'warning'
-    },
-
-    stats: {
-      colors: {
-        green: '\u001b[32m'
-      }
-    },
-
     devServer: {
-      contentBase: './src',
+      contentBase: staticsPath,
       historyApiFallback: true,
       port: 8004,
-      compress: isProd,
-      inline: !isProd,
-      hot: !isProd,
+      compress: production,
+      hot: !production,
       stats: {
-        assets: true,
         children: false,
         chunks: false,
         hash: false,
@@ -144,10 +120,7 @@ module.exports = function (env) {
         publicPath: false,
         timings: true,
         version: false,
-        warnings: true,
-        colors: {
-          green: '\u001b[32m'
-        }
+        warnings: true
       }
     }
   }
