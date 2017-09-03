@@ -1,23 +1,23 @@
-import React,{Component} from 'react'
-import { Button, Page, Title} from 'components'
+import React, { Component } from 'react'
+import components from 'components'
 import { Link } from 'react-router-dom'
-import  './index.less'
+import styles from './index.less'
+
+const { Page } = components
 
 export default class HomePage extends Component {
-    constructor (props) {
-      super(props)
-    }
-
-    render () {
-        return (
-          <div className='666'>
-            <p>
-              <Link to='/button'>button</Link>
-            </p>
-            <p>
-              <Link to='/title'>title</Link>
-            </p>
-          </div>
-        )
-    }
+  render() {
+    return (
+      <div className={styles.home}>
+        <Page className="666">
+          <p>
+            <Link to="/button">button</Link>
+          </p>
+          <p>
+            <Link to="/title">title</Link>
+          </p>
+        </Page>
+      </div>
+    )
+  }
 }

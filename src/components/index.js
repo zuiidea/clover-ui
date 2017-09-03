@@ -5,5 +5,5 @@ import Title from './Title'
 export default {
   Page,
   Button,
-  Title
+  Title,
 }
