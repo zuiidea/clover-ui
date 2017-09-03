@@ -2,33 +2,34 @@ const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const HtmlWebpackTemplate = require('html-webpack-template')
+const pxtorem = require('postcss-pxtorem')
+const autoprefixer = require('autoprefixer')
 
 const sourcePath = path.join(__dirname, 'src')
-const staticsPath = path.join(__dirname, 'dist')
+const staticPath = path.join(__dirname, 'dist')
 
-module.exports = function (env) {
+module.exports = function(env) {
   const production = env === 'production'
-  const plugins = [
-    new HtmlWebpackPlugin({
+  const plugins = [new HtmlWebpackPlugin({
       hash: true,
       mobile: true,
       title: 'clover-ui',
       inject: false,
       appMountId: 'root',
-      template: `!!ejs-loader!${HtmlWebpackTemplate}`,
+      // template: `!!ejs-loader!${HtmlWebpackTemplate}`,
+      template: HtmlWebpackTemplate,
       minify: {
-        collapseWhitespace: true,
+        collapseWhitespace: true
       },
       meta: [
         {
           name: 'viewport',
-          content: 'width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no',
-        },
-      ],
-    }),
-  ]
+          content: 'width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no'
+        }
+      ]
+    })]
 
-  if (production) {
+    if (production) {
     plugins.push(
       new webpack.LoaderOptionsPlugin({
         minimize: true,
@@ -50,20 +51,20 @@ module.exports = function (env) {
         output: {
           comments: false
         }
-      })
-    )
+    }))
   } else {
-    plugins.push(
-      new webpack.HotModuleReplacementPlugin()
-    )
+    plugins.push(new webpack.HotModuleReplacementPlugin())
   }
 
   return {
-    devtool: production ? 'source-map' : 'eval',
+    plugins,
+    devtool: production
+      ? 'source-map'
+      : 'eval',
     context: sourcePath,
-    entry:'./index.js',
+    entry: './index.js',
     output: {
-      path: staticsPath,
+      path: staticPath,
       filename: '[name].[hash:5].js'
     },
     module: {
@@ -74,40 +75,47 @@ module.exports = function (env) {
           use: [
             'style-loader',
             {
-              loader:'css-loader',
-              options:{
-                modules:true,
-                localIdentName:'[hash:base64:4]'
+              loader: 'css-loader',
+              options: {
+                modules: true,
+                localIdentName: '[hash:base64:4]'
               }
-            },
+            }, {
+              loader: 'postcss-loader',
+              options: {
+                plugins: [
+                  pxtorem({
+                    rootValue: 75,
+                    propList: ['*']
+                  }),
+                  autoprefixer()
+                ]
+              }
+            }
           ]
-        },
-        {
+        }, {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
-          use: [
-            'babel-loader'
-          ]
+          use: 'babel-loader'
+        }, {
+          test: /\.(ejs)$/,
+          use: 'ejs-loader'
         }
       ]
     },
     resolve: {
       extensions: ['.js'],
       modules: [
-        'node_modules',
-         sourcePath
+        'node_modules', sourcePath
       ],
-      alias:{
-        pages:path.resolve(__dirname, 'src/pages'),
-        components:path.resolve(__dirname, 'src/components'),
-        theme:path.resolve(__dirname, 'src/theme')
+      alias: {
+        pages: path.resolve(__dirname, 'src/pages'),
+        components: path.resolve(__dirname, 'src/components'),
+        theme: path.resolve(__dirname, 'src/theme')
       }
     },
-
-    plugins,
-
     devServer: {
-      contentBase: staticsPath,
+      contentBase: staticPath,
       historyApiFallback: true,
       port: 8004,
       compress: production,
