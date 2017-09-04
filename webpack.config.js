@@ -1,34 +1,21 @@
 const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const HtmlWebpackTemplate = require('html-webpack-template')
 const pxtorem = require('postcss-pxtorem')
 const autoprefixer = require('autoprefixer')
 
-const sourcePath = path.join(__dirname, 'src')
-const staticPath = path.join(__dirname, 'dist')
-const modulesPath = path.join(__dirname, 'node_modules')
-const componentsPath = path.join(__dirname, 'src/components')
+const sourcePath = path.resolve(__dirname, 'src')
+const staticPath = path.resolve(__dirname, 'dist')
+const modulesPath = path.resolve(__dirname, 'node_modules')
+const componentsPath = path.resolve(__dirname, 'src/components')
 
 module.exports = function (env) {
   const production = env === 'production'
   const plugins = [new HtmlWebpackPlugin({
-    hash: true,
-    mobile: true,
-    title: 'clover-ui',
-    inject: false,
-    appMountId: 'root',
-    // template: `!!ejs-loader!${HtmlWebpackTemplate}`,
-    template: HtmlWebpackTemplate,
+    template: path.resolve(__dirname, 'src/index.ejs'),
     minify: {
       collapseWhitespace: true,
     },
-    meta: [
-      {
-        name: 'viewport',
-        content: 'width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no',
-      },
-    ],
   })]
 
   if (production) {
@@ -109,7 +96,12 @@ module.exports = function (env) {
           include: componentsPath,
           use: cssuse.map((item) => {
             if (item instanceof Object && item.loader === 'css-loader') {
-              item.options.modules = false
+              return {
+                loader: 'css-loader',
+                options: {
+                  modules: false,
+                },
+              }
             }
             return item
           }),
@@ -140,6 +132,7 @@ module.exports = function (env) {
       contentBase: staticPath,
       historyApiFallback: true,
       port: 8004,
+      host: '0.0.0.0',
       compress: production,
       hot: !production,
       stats: {

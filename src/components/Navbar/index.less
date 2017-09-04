@@ -1,5 +1,5 @@
+/* === Navbar === */
 @import "~theme/vars";
-/* === Toolbars === */
 @toolbarBg: #efeff0;
 @toolbarColor: @titleColor;
 @toolbarLinksColor: @titleColor;
@@ -20,12 +20,12 @@
   box-sizing: border-box;
   position: relative;
   margin: 0;
-  z-index: 500;
-  -webkit-backface-visibility: hidden;
+  z-index: 50;
   backface-visibility: hidden;
   color: @toolbarColor;
   background: @toolbarBg;
   .hairline(bottom, @borderColor,true);
+
   .center {
     font-size: 28px;
     position: absolute;
@@ -37,8 +37,8 @@
     white-space: nowrap;
     line-height: @navbarSize;
     display: inline-block;
-    cursor: pointer;
   }
+
   .left,
   .right {
     flex-shrink: 0;
@@ -46,19 +46,23 @@
     justify-content: flex-start;
     align-items: center;
     transform: translate3d(0,0,0);
-    .button-icon{
-       margin-top: 12px;
+
+    .button-icon {
+      margin-top: 12px;
     }
   }
+
   .right {
     margin-left: auto;
   }
+
   .right:first-child {
     position: absolute;
     right: 32px;
     height: 100%;
   }
-  &.navbar-secondary{
+
+  &.navbar-secondary {
     .center {
       position: relative;
       left: auto;

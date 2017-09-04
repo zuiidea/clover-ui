@@ -10,8 +10,6 @@ export default class Navbar extends Component {
             <slot name="left" />
           </div>
           <div className="center">
-            {/* <i class="icon icon-left" v-if="type=='secondary'&&back" ></i>
-            <slot></slot> */}
             {this.props.children}
           </div>
           <div className="right">
