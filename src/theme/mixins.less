@@ -18,7 +18,7 @@
     top: 0;
     bottom: auto;
     right: auto;
-    height: 1px;
+    height: 1PX;
     width: e("calc(100% - 26px)");
     background-color: @color;
     display: block;
@@ -36,7 +36,7 @@
     top: 0;
     bottom: auto;
     right: auto;
-    width: 1px;
+    width: 1PX;
     height: 100%;
     background-color: @color;
     display: block;
@@ -54,12 +54,30 @@
     bottom: 0;
     right: auto;
     top: auto;
-    height: 1px;
+    height: 1PX;
     width: e("calc(100% - 26px)");
     background-color: @color;
     display: block;
     z-index: 15;
     transform-origin: 50% 0%;
+    transform: scaleY(0.3333);
+  }
+}
+
+.hairline(@position, @color, @full) when (@position = bottom),(@full = true) {
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: auto;
+    top: auto;
+    height: 1PX;
+    width: 100%;
+    background-color: @color;
+    display: block;
+    z-index: 15;
+    transform-origin: 50% 100%;
     transform: scaleY(0.3333);
   }
 }
@@ -72,7 +90,7 @@
     top: 0;
     left: auto;
     bottom: auto;
-    width: 1px;
+    width: 1PX;
     height: 100%;
     background-color: @color;
     display: block;
