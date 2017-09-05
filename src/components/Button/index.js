@@ -1,21 +1,23 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
+import Icon from 'components/Icon'
 import './index.less'
 
-export default class ContentBlock extends Component {
+export default class Button extends Component {
   render() {
-    const { children, radius, fill, small, fluid, disabled, color } = this.props
+    const { children, radius, fill, small, full, disabled, color, icon } = this.props
     return (
       <div className={classnames('button', {
         'button-disabled': disabled,
         'button-fill': fill,
         'button-small': small,
         'button-radius': radius,
-        'button-fluid': fluid,
+        'button-full': full,
+        'button-icon': icon,
         [`button-${color}`]: color,
       })}
       >
-        {children}
+        {icon ? <Icon type={icon} /> : children }
       </div>
     )
   }

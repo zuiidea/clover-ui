@@ -10,27 +10,27 @@ export default class ButtonPage extends Component {
       <Page className={styles.page}>
         <Navbar>Button</Navbar>
         <ContentBlock title="default">
-          <Button>按钮</Button>
+          <Button>Button</Button>
         </ContentBlock>
         <ContentBlock title="size small">
-          <Button small>按钮</Button>
-          <Button small color="green">按钮</Button>
-          <Button small color="orange">按钮</Button>
+          <Button small>Button</Button>
+          <Button small color="green">Button</Button>
+          <Button small color="orange">Button</Button>
         </ContentBlock>
         <ContentBlock title="color">
-          <Button>按钮</Button>
-          <Button color="green">按钮</Button>
-          <Button color="orange">按钮</Button>
+          <Button>Button</Button>
+          <Button color="green">Button</Button>
+          <Button color="orange">Button</Button>
         </ContentBlock>
         <ContentBlock title="fill">
-          <Button fill>按钮</Button>
-          <Button fill color="green">按钮</Button>
-          <Button fill color="orange">按钮</Button>
+          <Button fill>Button</Button>
+          <Button fill color="green">Button</Button>
+          <Button fill color="orange">Button</Button>
         </ContentBlock>
         <ContentBlock title="radius">
-          <Button radius>按钮</Button>
-          <Button radius color="green">按钮</Button>
-          <Button radius small>按钮</Button>
+          <Button radius>Button</Button>
+          <Button radius color="green">Button</Button>
+          <Button radius small>Button</Button>
         </ContentBlock>
         <ContentBlock title="icon">
           <Button icon="up" small />
@@ -43,24 +43,24 @@ export default class ButtonPage extends Component {
           <Button icon="share" />
         </ContentBlock>
         <ContentBlock title="disabled">
-          <Button disabled>按钮</Button>
+          <Button disabled>Button</Button>
         </ContentBlock>
-        <ContentBlock title="fluid">
-          <Button fluid radius className="green">按钮</Button>
-          <Button fluid radius className="m-t">按钮</Button>
-          <Button fluid className="m-t">按钮</Button>
+        <ContentBlock title="full">
+          <Button full radius className="green">Button</Button>
+          <Button full radius className="m-t">Button</Button>
+          <Button full className="m-t">Button</Button>
         </ContentBlock>
         <ContentBlock title="row">
-          <p className="buttons-row">
-            <Button radius small>按钮</Button>
-            <Button radius small>按钮</Button>
-            <Button radius color="green" small>按钮</Button>
-            <Button radius color="orange" small>按钮</Button>
-          </p>
-          <p className="buttons-row">
-            <Button color="green">按钮</Button>
-            <Button color="orange">按钮</Button>
-          </p>
+          <div className="buttons-row">
+            <Button radius small>Button</Button>
+            <Button radius small>Button</Button>
+            <Button radius color="green" small>Button</Button>
+            <Button radius color="orange" small>Button</Button>
+          </div>
+          <div className="buttons-row">
+            <Button color="green">Button</Button>
+            <Button color="orange">Button</Button>
+          </div>
         </ContentBlock>
       </Page>
     )

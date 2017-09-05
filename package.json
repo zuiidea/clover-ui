@@ -14,13 +14,16 @@
   "author": "zuiidea",
   "license": "MIT",
   "dependencies": {
+    "animated": "^0.2.0",
     "classnames": "^2.2.0",
-    "history": "^4.7.2",
-    "postcss-loader": "^2.0.6",
+    "glamor": "^2.20.40",
     "react": "^15.6.1",
     "react-addons-css-transition-group": "^15.6.0",
     "react-dom": "^15.6.1",
-    "react-router-dom": "^4.2.2"
+    "react-motion": "^0.5.1",
+    "react-router-dom": "^4.2.2",
+    "react-router-transition": "^1.0.0",
+    "react-transition-group": "^2.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.3",
@@ -33,6 +36,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-react-hmre": "1.1.1",
+    "babel-preset-stage-0": "^6.24.1",
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
     "ejs-loader": "^0.3.0",
@@ -46,7 +50,11 @@
     "html-webpack-template": "^5.6.0",
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
+    "postcss-adaptive": "^0.4.0",
+    "postcss-loader": "^2.0.6",
+    "postcss-px-to-viewport": "^0.0.3",
     "postcss-pxtorem": "^4.0.1",
+    "postcss-write-svg": "^3.0.1",
     "style-loader": "^0.18.2",
     "webpack": "3.5.5",
     "webpack-dev-server": "^2.7.1"

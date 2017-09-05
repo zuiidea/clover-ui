@@ -3,6 +3,7 @@ import Page from './Page'
 import Title from './Title'
 import Navbar from './Navbar'
 import ContentBlock from './ContentBlock'
+import Icon from './Icon'
 
 export default {
   Page,
@@ -10,4 +11,5 @@ export default {
   Title,
   Navbar,
   ContentBlock,
+  Icon,
 }

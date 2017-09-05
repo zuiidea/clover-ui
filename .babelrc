@@ -1,19 +1,21 @@
 {
   "plugins": [
-     "transform-runtime",
-     "transform-react-jsx",
-     "transform-class-properties"
+    "transform-runtime",
+    "transform-react-jsx",
+    "transform-class-properties",
+    "glamor/babel"
   ],
   "presets": [
-   [
-     "es2015",
-     {
-       "modules": false
-     }
-   ],
-   "react"
- ],
- "env": {
+    [
+      "es2015",
+      {
+        "modules": false
+      }
+    ],
+    "react",
+    "stage-0",
+  ],
+  "env": {
     "development": {
       "presets": [
         "react-hmre"

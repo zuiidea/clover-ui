@@ -1,8 +1,10 @@
 const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const pxtorem = require('postcss-pxtorem')
 const autoprefixer = require('autoprefixer')
+const writesvg = require('postcss-write-svg')
+const adaptive = require('postcss-adaptive')
+const pxtoviewport = require('postcss-px-to-viewport')
 
 const sourcePath = path.resolve(__dirname, 'src')
 const staticPath = path.resolve(__dirname, 'dist')
@@ -20,6 +22,9 @@ module.exports = function (env) {
 
   if (production) {
     plugins.push(
+      new webpack.ProvidePlugin({
+        Glamor: 'glamor/react',
+      }),
       new webpack.LoaderOptionsPlugin({
         minimize: true,
         debug: false,
@@ -59,11 +64,14 @@ module.exports = function (env) {
       loader: 'postcss-loader',
       options: {
         plugins: [
-          pxtorem({
-            rootValue: 75,
-            propList: ['*'],
+          adaptive({
+            remUnit: 75,
           }),
           autoprefixer(),
+          writesvg(),
+          pxtoviewport({
+            viewportWidth: 375,
+          }),
         ],
       },
     },
