@@ -24,6 +24,7 @@
     "react-motion": "^0.5.1",
     "react-router-dom": "^4.2.2",
     "react-router-transition": "^1.0.0",
+    "react-transform-hmr": "^1.0.4",
     "react-transition-group": "^2.2.0"
   },
   "devDependencies": {

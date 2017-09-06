@@ -13,43 +13,33 @@ const componentsPath = path.resolve(__dirname, 'src/components')
 
 module.exports = function (env) {
   const production = env === 'production'
-  const plugins = [new HtmlWebpackPlugin({
-    template: path.resolve(__dirname, 'src/index.ejs'),
-    minify: {
-      collapseWhitespace: true,
-    },
-  })]
+  const plugins = [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'src/index.ejs'),
+      minify: {
+        collapseWhitespace: true,
+      },
+    }),
+  ]
 
   if (production) {
     plugins.push(
-      new webpack.ProvidePlugin({
-        Glamor: 'glamor/react',
-      }),
       new webpack.LoaderOptionsPlugin({
         minimize: true,
         debug: false,
       }),
-      new webpack.optimize.UglifyJsPlugin({
-        compress: {
-          warnings: false,
-          screw_ie8: true,
-          conditionals: true,
-          unused: true,
-          comparisons: true,
-          sequences: true,
-          dead_code: true,
-          evaluate: true,
-          if_return: true,
-          join_vars: true,
+      new webpack.DefinePlugin({
+        'process.env': {
+          NODE_ENV: JSON.stringify('production'),
         },
-        output: {
-          comments: false,
-        },
-      }))
+      }),
+      new webpack.optimize.UglifyJsPlugin(),
+    )
   } else {
-    plugins.push(new webpack.HotModuleReplacementPlugin())
+    plugins.push(
+      new webpack.HotModuleReplacementPlugin(),
+    )
   }
-
 
   const cssuse = [
     'style-loader',
@@ -87,7 +77,7 @@ module.exports = function (env) {
     entry: './index.js',
     output: {
       path: staticPath,
-      filename: '[name].[hash:5].js',
+      filename: '[name].[hash:8].js',
     },
     module: {
       rules: [
