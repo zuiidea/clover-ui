@@ -1,0 +1,53 @@
+@import "~theme/vars";
+
+.bg-color() {
+  &.bg-blue {
+    background-color: @blue;
+    color: #fff;
+  }
+
+  &.bg-orange {
+    background-color: @orange;
+    color: #fff;
+  }
+
+  &.bg-green {
+    background-color: @green;
+    color: #fff;
+  }
+
+  &.bg-yellow {
+    background-color: @yellow;
+    color: #fff;
+  }
+
+  &.bg-lightblue {
+    background-color: @lightblue;
+    color: #fff;
+  }
+
+  &.bg-gray {
+    background-color: @gray;
+    color: #fff;
+  }
+}
+/* === Badge === */
+.badge {
+  font-size: 20px;
+  display: inline-block;
+  background: transparent;
+  padding: 4px 12px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  position: relative;
+  border: solid 1px @borderColor;
+  .bg-color();
+
+  &.badge-small {
+    font-size: 8px;
+    line-height: 1;
+    vertical-align: middle;
+    white-space: nowrap;
+    padding: 2px 3px;
+  }
+}

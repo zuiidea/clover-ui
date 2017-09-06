@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Home from 'pages/home'
 import Button from 'pages/button'
 import Title from 'pages/title'
+import List from 'pages/list'
 
 import 'utils/flexble'
 
@@ -25,6 +26,7 @@ ReactDOM.render(
         <Route exact path="/" component={Home} />
         <Route exact path="/button" component={Button} />
         <Route exact path="/title" component={Title} />
+        <Route exact path="/list" component={List} />
       </Switch>
     </App>
   </BrowserRouter>,

@@ -20,19 +20,10 @@
   outline: 0;
   transition: 0.3s;
   user-select: none;
-  border: none;
   border-width: 1PX;
   border-style: solid;
   border-radius: 6px;
   .button-color(@textColor,transparent, @borderColor);
-
-  &:active {
-    background-color: shade(transparent, 5%);
-  }
-
-  &:not(.button-disabled):active {
-    background-image: none;
-  }
   // disabled
   &.button-disabled {
     &,
@@ -54,47 +45,29 @@
   // color
   &.button-green {
     .button-color(@green,transparent, @green);
-
-    &:not(.button-disabled):active {
-      background-color: tint(@green, 90%);
-    }
   }
 
   &.button-orange {
     .button-color(@orange,transparent, @orange);
+  }
 
-    &:not(.button-disabled):active {
-      background-color: tint(@orange, 90%);
-    }
+  &.button-primary {
+    .button-color(@primary,transparent, @primary);
   }
   // fill
   &.button-fill {
-    background-color: #eee;
-    border-radius: 4px;
     .button-color(@textColor, #eee, #eee);
 
-    &:active {
-      background: darken(#eee, 5%);
-    }
-    // color
     &.button-green {
       .button-color(#fff,@green, @green);
-
-      &:not(.button-disabled):active {
-        background: darken(@green, 5%);
-      }
     }
 
     &.button-orange {
       .button-color(#fff,@orange, @orange);
-
-      &:not(.button-disabled):active {
-        background: darken(@orange, 5%);
-      }
     }
-    // size
-    &.button-small {
-      border-radius: 2px;
+
+    &.button-primary {
+      .button-color(#fff,@primary, @primary);
     }
   }
   // radius
@@ -153,4 +126,16 @@
   color: @color;
   background-color: @background;
   border-color: @border;
+
+  &:not(.button-disabled):active {
+    background-color: tint(@color, 90%);
+  }
+
+  &.button-fill {
+    border-color: darken(@background, 5%);
+  }
+
+  &.button-fill:not(.button-disabled):active {
+    background: darken(@background, 5%);
+  }
 }

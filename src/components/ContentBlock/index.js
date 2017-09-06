@@ -1,17 +1,21 @@
 import React, { Component } from 'react'
+import Title from './Title'
 import './index.less'
 
-export default class ContentBlock extends Component {
+class ContentBlock extends Component {
   render() {
+    const { children, title, className } = this.props
     return (
-      <div>
-        {this.props.title && <div className="content-block-title">
-          {this.props.title}
-        </div>}
+      <div className={className}>
+        {title && <Title >{title}</Title>}
         <div className="content-block">
-          {this.props.children}
+          {children}
         </div>
       </div>
     )
   }
 }
+
+ContentBlock.Title = Title
+
+export default ContentBlock

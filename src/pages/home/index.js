@@ -17,6 +17,9 @@ export default class HomePage extends Component {
           <p>
             <Link to="/title">title</Link>
           </p>
+          <p>
+            <Link to="/list">list</Link>
+          </p>
         </ContentBlock>
       </Page>
     )
