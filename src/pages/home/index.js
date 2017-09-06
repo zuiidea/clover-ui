@@ -1,25 +1,27 @@
 import React, { Component } from 'react'
-import { Navbar, ContentBlock, Page } from 'components'
-import { Link } from 'react-router-dom'
+import { ContentBlock, List, Icon, Page } from 'components'
 import styles from './index.less'
 
+const Title = ContentBlock.Title
+const { Element, Item } = List
 
 export default class HomePage extends Component {
   render() {
     return (
       <Page className={styles.home}>
-        <Navbar>home</Navbar>
-        <ContentBlock>
-          <p>
-            <Link to="/button">button</Link>
-          </p>
-          <p>
-            <Link to="/title">title</Link>
-          </p>
-          <p>
-            <Link to="/list">list</Link>
-          </p>
-        </ContentBlock>
+        <Title>Basic</Title>
+        <List>
+          <Item link="/button" media={<Icon type="star" fill="cyan" />}>
+            <Element type="title">
+            Button
+            </Element>
+          </Item>
+          <Item link="/button" media={<Icon type="file" fill="yellow" />}>
+            <Element type="title">
+            List
+            </Element>
+          </Item>
+        </List>
       </Page>
     )
   }

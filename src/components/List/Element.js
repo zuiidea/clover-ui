@@ -6,7 +6,7 @@ export default class Element extends Component {
     const { children, className, type } = this.props
     return (
       <div className={classnames(className, {
-        [`item${type}`]: type,
+        [`item-${type}`]: type,
       })}
       >
         {children}

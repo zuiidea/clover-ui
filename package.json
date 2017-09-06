@@ -15,6 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "animated": "^0.2.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
     "classnames": "^2.2.0",
     "glamor": "^2.20.40",
     "react": "^15.6.1",

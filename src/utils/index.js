@@ -1,1 +1,4 @@
-export const pxtovw = number => (number / 750) * 100
+const pxtovw = number => (number / 750) * 100
+export default {
+  pxtovw,
+}

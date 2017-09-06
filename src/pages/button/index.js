@@ -6,7 +6,7 @@ export default class ButtonPage extends Component {
   render() {
     return (
       <Page className={styles.page}>
-        <Navbar>Button</Navbar>
+        <Navbar type="secondary">Button</Navbar>
         <ContentBlock title="default">
           <Button>Button</Button>
         </ContentBlock>
@@ -14,19 +14,19 @@ export default class ButtonPage extends Component {
           <Button small>Button</Button>
           <Button small color="primary">primary</Button>
           <Button small color="green">Button</Button>
-          <Button small color="orange">Button</Button>
+          <Button small color="secondary">Button</Button>
         </ContentBlock>
         <ContentBlock title="color">
           <Button>Button</Button>
           <Button small color="primary">primary</Button>
           <Button small color="green">green</Button>
-          <Button small color="orange">orange</Button>
+          <Button small color="secondary">Button</Button>
         </ContentBlock>
         <ContentBlock title="fill">
           <Button fill>Button</Button>
           <Button fill small color="primary">primary</Button>
           <Button fill small color="green">green</Button>
-          <Button fill small color="orange">orange</Button>
+          <Button fill small color="secondary">Button</Button>
         </ContentBlock>
         <ContentBlock title="radius">
           <Button radius>Button</Button>
@@ -54,13 +54,13 @@ export default class ButtonPage extends Component {
             <Button radius small>Button</Button>
             <Button radius color="primary" small>Button</Button>
             <Button radius color="green" small>Button</Button>
-            <Button radius color="orange" small>Button</Button>
+            <Button radius color="secondary" small>Button</Button>
           </div>
           <div className="buttons-row">
             <Button small>Button</Button>
             <Button color="primary" small>Button</Button>
             <Button color="green" small>Button</Button>
-            <Button color="orange" small>Button</Button>
+            <Button color="secondary" small>Button</Button>
           </div>
         </ContentBlock>
         <ContentBlock title="full">

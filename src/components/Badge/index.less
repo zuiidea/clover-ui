@@ -32,6 +32,7 @@
   }
 }
 /* === Badge === */
+
 .badge {
   font-size: 20px;
   display: inline-block;
@@ -40,14 +41,55 @@
   box-sizing: border-box;
   vertical-align: middle;
   position: relative;
-  border: solid 1px @borderColor;
-  .bg-color();
+  border-style: solid;
+  border-width: 1PX;
+  .badge-color(@textColor,transparent, @borderColor);
+  border-radius: 3px;
 
   &.badge-small {
-    font-size: 8px;
+    font-size: 16px;
     line-height: 1;
     vertical-align: middle;
     white-space: nowrap;
-    padding: 2px 3px;
+    padding: 4px 6px;
+    border-radius: 2px;
+  }
+
+  &.badge-secondary {
+    .badge-color(@secondary,transparent, @secondary);
+  }
+
+  &.badge-primary {
+    .badge-color(@primary,transparent, @primary);
+  }
+
+  &.badge-green {
+    .badge-color(#fff,@green, @green);
+  }
+  // fill
+  &.badge-fill {
+    .badge-color(@textColor, #eee, #eee);
+
+    &.badge-green {
+      .badge-color(#fff,@green, @green);
+    }
+
+    &.badge-secondary {
+      .badge-color(#fff,@secondary, @secondary);
+    }
+
+    &.badge-primary {
+      .badge-color(#fff,@primary, @primary);
+    }
+  }
+}
+
+.badge-color(@color; @background; @border) {
+  color: @color;
+  background-color: @background;
+  border-color: @border;
+
+  &.badge-fill {
+    border-color: @background;
   }
 }
