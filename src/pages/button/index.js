@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import components from 'components'
+import { Page, Navbar, ContentBlock, Button } from 'components'
 import styles from './index.less'
-
-const { Page, Navbar, ContentBlock, Button } = components
 
 export default class ButtonPage extends Component {
   render() {

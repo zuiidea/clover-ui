@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import components from 'components'
+import { Navbar, ContentBlock, Page } from 'components'
 import { Link } from 'react-router-dom'
 import styles from './index.less'
 
-const { Navbar, ContentBlock, Page } = components
 
 export default class HomePage extends Component {
   render() {

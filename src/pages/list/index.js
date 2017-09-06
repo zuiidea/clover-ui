@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import components from 'components'
+import { Navbar, ContentBlock, List, Icon, Badge, Button, Rate, Page } from 'components'
 import styles from './index.less'
 
-const { Navbar, ContentBlock, Page, List, Icon, Badge, Button, Rate } = components
 const { Element, Item } = List
 const Title = ContentBlock.Title
 
