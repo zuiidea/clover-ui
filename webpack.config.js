@@ -6,16 +6,16 @@ const writesvg = require('postcss-write-svg')
 const adaptive = require('postcss-adaptive')
 const pxtoviewport = require('postcss-px-to-viewport')
 
-const sourcePath = path.resolve(__dirname, 'src')
+const sourcePath = path.resolve(__dirname, 'src/example')
 const staticPath = path.resolve(__dirname, 'dist')
 const modulesPath = path.resolve(__dirname, 'node_modules')
-const componentsPath = path.resolve(__dirname, 'src/components')
+const componentsPath = path.resolve(__dirname, 'src')
 
 module.exports = function (env) {
   const production = env === 'production'
   const plugins = [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'src/index.ejs'),
+      template: path.resolve(__dirname, 'example/index.ejs'),
       minify: {
         collapseWhitespace: true,
       },
@@ -74,7 +74,7 @@ module.exports = function (env) {
       ? 'source-map'
       : 'eval',
     context: sourcePath,
-    entry: './index.js',
+    entry: path.resolve(__dirname, 'example/index.js'),
     output: {
       path: staticPath,
       filename: '[name].[hash:8].js',
@@ -121,9 +121,6 @@ module.exports = function (env) {
       ],
       alias: {
         components: componentsPath,
-        pages: path.resolve(__dirname, 'src/pages'),
-        theme: path.resolve(__dirname, 'src/theme'),
-        utils: path.resolve(__dirname, 'src/utils'),
       },
     },
     devServer: {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
-import { pxtovw } from 'utils'
+import { pxtovw } from '../utils'
 import './index.less'
 
 export default class Icon extends Component {
