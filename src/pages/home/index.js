@@ -16,7 +16,7 @@ export default class HomePage extends Component {
             Button
             </Element>
           </Item>
-          <Item link="/button" media={<Icon type="file" fill="yellow" />}>
+          <Item link="/list" media={<Icon type="file" fill="yellow" />}>
             <Element type="title">
             List
             </Element>

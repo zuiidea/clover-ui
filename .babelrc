@@ -6,21 +6,11 @@
   "env": {
     "development": {
       "plugins": [
-        ["react-transform", {
-          "transforms": [{
-            "transform": "react-transform-hmr",
-            "imports": ["react"],
-            "locals": ["module"]
-          }]
-        }],
         "add-module-exports",
         "transform-runtime",
-        "transform-react-jsx",
-        "transform-class-properties"
       ],
       "presets": [
-        "react",
-        "react-hmre"
+        "react"
       ]
     }
   }
