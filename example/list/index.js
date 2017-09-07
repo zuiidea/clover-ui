@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Navbar, ContentBlock, List, Icon, Badge, Button, Rate, Page } from 'components'
+import { Navbar, ContentBlock, List, Icon, Badge, Button, Rate, Page } from 'clover-ui'
 import styles from './index.less'
 
 const { Element, Item } = List

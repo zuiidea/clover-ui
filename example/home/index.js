@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ContentBlock, List, Icon, Page } from 'components'
+import { ContentBlock, List, Icon, Page } from 'clover-ui'
 import styles from './index.less'
 
 const Title = ContentBlock.Title

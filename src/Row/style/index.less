@@ -1,0 +1,26 @@
+/* === Badge === */
+@import '../../theme/vars';
+
+.badge {
+  font-size: 20px;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 4px 12px;
+  vertical-align: middle;
+  border-width: 1PX;
+  border-style: solid;
+  border-radius: 3px;
+  line-height: 32px;
+  .component-color(badge, false);
+
+  &.badge-small {
+    font-size: 16px;
+    line-height: 1;
+    padding: 4px 6px;
+    vertical-align: middle;
+    white-space: nowrap;
+    border-radius: 2px;
+    line-height: 28px;
+  }
+}

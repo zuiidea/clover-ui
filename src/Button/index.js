@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
-import Icon from 'components/Icon'
-import './index.less'
+import Icon from '../Icon'
 
 export default class Button extends Component {
   render() {

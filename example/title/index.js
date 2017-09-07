@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Page, Navbar, ContentBlock } from 'components'
+import { Page, Navbar, ContentBlock } from 'clover-ui'
 import { Link } from 'react-router-dom'
 
 export default class TitlePage extends Component {

@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import 'clover-ui/theme/styles.less'
 import Home from './home'
 import Button from './button'
 import List from './list'

@@ -1,6 +1,6 @@
 /* === Pages === */
-@import "../theme/vars";
 
+@import "../../theme/vars";
 .page {
   box-sizing: border-box;
   position: absolute;
@@ -9,7 +9,6 @@
   width: 100%;
   height: 100%;
   transition: all 0.3s;
-
   .page-content {
     position: absolute;
     top: 0;
@@ -21,7 +20,6 @@
     box-sizing: border-box;
     z-index: 1;
   }
-
   .navbar~.page-content {
     top: 45px;
   }
@@ -32,7 +30,6 @@
   opacity: 0.01;
   transform: translate3d(100%, 0, 0);
   transition: all 0.2s ease;
-
   &.slide-enter-active {
     opacity: 1;
     transform: translate3d(0, 0, 0);
@@ -43,7 +40,6 @@
   opacity: 1;
   transform: translate3d(0, 0, 0);
   transition: all 0.2s ease;
-
   &.slide-exit-active {
     opacity: 0.01;
     transform: translate3d(100%, 0, 0);

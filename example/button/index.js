@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Page, Navbar, ContentBlock, Button } from 'components'
+import { Page, Navbar, ContentBlock, Button } from 'clover-ui'
 import styles from './index.less'
 
 export default class ButtonPage extends Component {

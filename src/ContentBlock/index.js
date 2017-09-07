@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Title from './Title'
-import './index.less'
 
 class ContentBlock extends Component {
   render() {

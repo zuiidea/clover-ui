@@ -2,7 +2,6 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
 import Icon from '../Icon'
-import './index.less'
 
 export default class Navbar extends Component {
   constructor(props) {

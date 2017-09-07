@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
-import './index.less'
 import Item from './Item'
 import Element from './Element'
 

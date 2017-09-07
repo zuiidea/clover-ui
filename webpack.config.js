@@ -7,7 +7,7 @@ const adaptive = require('postcss-adaptive')
 const pxtoviewport = require('postcss-px-to-viewport')
 
 const sourcePath = path.resolve(__dirname, 'src/example')
-const staticPath = path.resolve(__dirname, 'dist')
+const staticPath = path.resolve(__dirname, 'exampleDist')
 const modulesPath = path.resolve(__dirname, 'node_modules')
 const componentsPath = path.resolve(__dirname, 'src')
 
@@ -120,7 +120,7 @@ module.exports = function (env) {
         'node_modules', sourcePath,
       ],
       alias: {
-        components: componentsPath,
+        'clover-ui': componentsPath,
       },
     },
     devServer: {
