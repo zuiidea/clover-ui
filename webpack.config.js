@@ -20,6 +20,11 @@ module.exports = function (env) {
         collapseWhitespace: true,
       },
     }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(production ? 'production' : 'development'),
+      },
+    }),
   ]
 
   if (production) {
@@ -27,11 +32,6 @@ module.exports = function (env) {
       new webpack.LoaderOptionsPlugin({
         minimize: true,
         debug: false,
-      }),
-      new webpack.DefinePlugin({
-        'process.env': {
-          NODE_ENV: JSON.stringify('production'),
-        },
       }),
       new webpack.optimize.UglifyJsPlugin(),
     )
