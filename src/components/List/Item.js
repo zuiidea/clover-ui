@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default class Item extends Component {
   render() {
-    const { link, media, extra, children, className } = this.props
+    const { className, children, link, media, extra } = this.props
     const content = [
       media ? <div className="item-media" key="media">
         {media}

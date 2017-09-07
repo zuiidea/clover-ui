@@ -4,7 +4,7 @@ import './index.less'
 
 class ContentBlock extends Component {
   render() {
-    const { children, title, className } = this.props
+    const { className, children, title } = this.props
     return (
       <div className={className}>
         {title && <Title >{title}</Title>}

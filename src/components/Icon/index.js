@@ -5,7 +5,7 @@ import './index.less'
 
 export default class Icon extends Component {
   render() {
-    const { type, circle, img, radius, size } = this.props
+    const { className, type, circle, img, radius, size, color = 'default', fill } = this.props
     const style = {}
     if (img) {
       style.backgroundImage = `url(${img})`
@@ -16,9 +16,11 @@ export default class Icon extends Component {
     }
     return (
       <i
-        className={classnames('icon', {
+        className={classnames('icon', className, {
           [`icon-${type}`]: type,
           [`icon-${size}`]: size,
+          [`icon-${color}`]: color,
+          'icon-fill': fill,
           'icon-img': img,
           'icon-circle': circle,
           'icon-radius': radius,

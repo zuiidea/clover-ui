@@ -1,95 +1,26 @@
-@import "~theme/vars";
-
-.bg-color() {
-  &.bg-blue {
-    background-color: @blue;
-    color: #fff;
-  }
-
-  &.bg-orange {
-    background-color: @orange;
-    color: #fff;
-  }
-
-  &.bg-green {
-    background-color: @green;
-    color: #fff;
-  }
-
-  &.bg-yellow {
-    background-color: @yellow;
-    color: #fff;
-  }
-
-  &.bg-lightblue {
-    background-color: @lightblue;
-    color: #fff;
-  }
-
-  &.bg-gray {
-    background-color: @gray;
-    color: #fff;
-  }
-}
 /* === Badge === */
+@import '~theme/vars';
 
 .badge {
   font-size: 20px;
-  display: inline-block;
-  background: transparent;
-  padding: 4px 12px;
-  box-sizing: border-box;
-  vertical-align: middle;
   position: relative;
-  border-style: solid;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 4px 12px;
+  vertical-align: middle;
   border-width: 1PX;
-  .badge-color(@textColor,transparent, @borderColor);
+  border-style: solid;
   border-radius: 3px;
+  line-height: 32px;
+  .component-color(badge, false);
 
   &.badge-small {
     font-size: 16px;
     line-height: 1;
+    padding: 4px 6px;
     vertical-align: middle;
     white-space: nowrap;
-    padding: 4px 6px;
     border-radius: 2px;
-  }
-
-  &.badge-secondary {
-    .badge-color(@secondary,transparent, @secondary);
-  }
-
-  &.badge-primary {
-    .badge-color(@primary,transparent, @primary);
-  }
-
-  &.badge-green {
-    .badge-color(#fff,@green, @green);
-  }
-  // fill
-  &.badge-fill {
-    .badge-color(@textColor, #eee, #eee);
-
-    &.badge-green {
-      .badge-color(#fff,@green, @green);
-    }
-
-    &.badge-secondary {
-      .badge-color(#fff,@secondary, @secondary);
-    }
-
-    &.badge-primary {
-      .badge-color(#fff,@primary, @primary);
-    }
-  }
-}
-
-.badge-color(@color; @background; @border) {
-  color: @color;
-  background-color: @background;
-  border-color: @border;
-
-  &.badge-fill {
-    border-color: @background;
+    line-height: 28px;
   }
 }

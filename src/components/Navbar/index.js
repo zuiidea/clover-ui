@@ -16,7 +16,7 @@ export default class Navbar extends Component {
     }
   }
   render() {
-    const { children, className, type, left, right } = this.props
+    const { className, children, type, left, right } = this.props
 
     return (
       <div className={classnames('navbar', className, {

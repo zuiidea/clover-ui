@@ -23,14 +23,13 @@
   border-width: 1PX;
   border-style: solid;
   border-radius: 6px;
-  .button-color(@textColor,transparent, @borderColor);
+  .component-color(button, true);
   // disabled
   &.button-disabled {
     &,
     &.active,
     &:active,
     &:hover {
-      .button-color(#bbb; transparent; #ddd);
       cursor: not-allowed;
     }
   }
@@ -41,34 +40,6 @@
     font-size: 24px;
     padding: 0 36px;
     border-radius: 4px;
-  }
-  // color
-  &.button-green {
-    .button-color(@green,transparent, @green);
-  }
-
-  &.button-secondary {
-    .button-color(@secondary,transparent, @secondary);
-  }
-
-  &.button-primary {
-    .button-color(@primary,transparent, @primary);
-  }
-  // fill
-  &.button-fill {
-    .button-color(@textColor, #eee, #eee);
-
-    &.button-green {
-      .button-color(#fff,@green, @green);
-    }
-
-    &.button-secondary {
-      .button-color(#fff,@secondary, @secondary);
-    }
-
-    &.button-primary {
-      .button-color(#fff,@primary, @primary);
-    }
   }
   // radius
   &.button-radius {
@@ -119,23 +90,5 @@
     & + .button {
       margin-left: 16px;
     }
-  }
-}
-
-.button-color(@color; @background; @border) {
-  color: @color;
-  background-color: @background;
-  border-color: @border;
-
-  &:not(.button-disabled):active {
-    background-color: tint(@color, 90%);
-  }
-
-  &.button-fill {
-    border-color: darken(@background, 5%);
-  }
-
-  &.button-fill:not(.button-disabled):active {
-    background: darken(@background, 5%);
   }
 }

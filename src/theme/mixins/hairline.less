@@ -1,0 +1,104 @@
+
+.hairline-common(@color) {
+  content: '';
+  position: absolute;
+  background-color: @color;
+  display: block;
+  z-index: 15;
+}
+
+.hairline-horizontal(@color) {
+  .hairline-common(@color);
+  left: 0;
+  right: auto;
+  height: 1PX;
+  width: 100%;
+}
+
+.hairline-vertical(@color) {
+  .hairline-common(@color);
+  left: 0;
+  right: auto;
+}
+
+.hairline(@position, @color) when (@position = top) {
+  &:before {
+    .hairline-horizontal(@color);
+    top: 0;
+    bottom: auto;
+  }
+}
+
+.hairline(@position, @color) when (@position = left) {
+  &:before {
+    .hairline-vertical(@color);
+    right: auto;
+    left: 0;
+  }
+}
+
+.hairline(@position, @color) when (@position = bottom) {
+  &:after {
+    .hairline-horizontal(@color);
+    bottom: 0;
+    top: auto;
+  }
+}
+
+.hairline(@position, @color) when (@position = right) {
+  &:after {
+    .hairline-vertical(@color);
+    right: 0;
+    left: auto;
+  }
+}
+
+.hairline(@position, @color, @full) when (@position = bottom) and (@full = false) {
+  .hairline(bottom,@color);
+  .hairline-no-full(bottom);
+}
+
+.hairline(@position, @color, @full) when (@position = top) and (@full = false) {
+  .hairline(top,@color);
+  .hairline-no-full(top);
+}
+
+.hairline-remove(@position) when not (@position = left) and not (@position = top) {
+  &:after {
+    display: none;
+  }
+}
+
+.hairline-remove(@position) when not (@position = right) and not (@position = bottom) {
+  &:before {
+    display: none;
+  }
+}
+
+.hairline-color(@position, @color) when not (@position = left) and not (@position = top) {
+  &:after {
+    background-color: @color;
+  }
+}
+
+.hairline-color(@position, @color) when not (@position = right) and not (@position = bottom) {
+  &:before {
+    background-color: @color;
+  }
+}
+
+.hairline-no-full(@position) when (@position = top) {
+  &::before {
+    left: 26px;
+    right: 26px;
+    width: auto;
+  }
+}
+
+.hairline-no-full(@position) when (@position = bottom) {
+  &::after {
+    left: 26px;
+    right: 26px;
+    width: auto;
+  }
+}

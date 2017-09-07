@@ -1,0 +1,49 @@
+.component-color(@elementprefix, @active) {
+  .element-color(@textColor,  @borderColor, @elementprefix, @active);
+
+  &.@{elementprefix}-secondary {
+    .element-color(@secondary,  @secondary, @elementprefix, @active);
+  }
+
+  &.@{elementprefix}-primary {
+    .element-color(@primary, @primary, @elementprefix ,@active);
+  }
+
+  &.@{elementprefix}-green {
+    .element-color(@green, @green, @elementprefix, @active);
+  }
+}
+
+.element-color-common(@color; @border; @elementprefix) {
+  color: @color;
+  border-color: @border;
+  background-color: transparent;
+
+  &.@{elementprefix}-fill{
+    color: #fff;
+    border-color: darken(@border, 5%);
+    background-color: @border;
+    &.@{elementprefix}-default{
+      color: @textColor;
+    }
+  }
+}
+
+.element-color(@color; @border; @elementprefix; @active) when (@active = true) {
+  .element-color-common(@color; @border; @elementprefix);
+  &:not(.@{elementprefix}-disabled):active {
+    background-color: tint(@border, 90%);
+    &.@{elementprefix}-default{
+      background-color: @activeBgColor;
+    }
+  }
+  &.@{elementprefix}-fill{
+    &:active:not(.@{elementprefix}-disabled){
+      background-color: darken(@border, 5%);
+    }
+  }
+}
+
+.element-color(@color; @border; @elementprefix; @active) when (@active = false) {
+  .element-color-common(@color; @border; @elementprefix);
+}

@@ -5,9 +5,9 @@ import './index.less'
 
 export default class Button extends Component {
   render() {
-    const { children, radius, fill, small, full, disabled, color, icon } = this.props
+    const { className, children, radius, fill, small, full, disabled, color = 'default', icon } = this.props
     return (
-      <div className={classnames('button', {
+      <div className={classnames('button', className, {
         'button-disabled': disabled,
         'button-fill': fill,
         'button-small': small,

@@ -6,7 +6,7 @@ import Element from './Element'
 
 class List extends Component {
   render() {
-    const { media, children, className } = this.props
+    const { className, children, media } = this.props
     return (
       <div className={classnames('list-block', className,
         { 'media-list': media },

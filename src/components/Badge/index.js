@@ -4,7 +4,7 @@ import './index.less'
 
 export default class Badge extends Component {
   render() {
-    const { children, className, small, color, fill } = this.props
+    const { className, children, small, color = 'default', fill } = this.props
     return (
       <span className={classnames('badge', className, {
         'badge-small': small,
