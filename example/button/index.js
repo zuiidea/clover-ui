@@ -21,12 +21,16 @@ export default class ButtonPage extends Component {
           <Button small color="primary">primary</Button>
           <Button small color="green">green</Button>
           <Button small color="secondary">Button</Button>
+          <Button small color="#4fa5f1">#4fa5f1</Button>
+          <Button small color="#03a9f4">#03a9f4</Button>
         </ContentBlock>
         <ContentBlock title="fill">
           <Button fill>Button</Button>
           <Button fill small color="primary">primary</Button>
           <Button fill small color="green">green</Button>
           <Button fill small color="secondary">Button</Button>
+          <Button fill small color="#4fa5f1">#4fa5f1</Button>
+          <Button fill small color="#03a9f4">#03a9f4</Button>
         </ContentBlock>
         <ContentBlock title="radius">
           <Button radius>Button</Button>

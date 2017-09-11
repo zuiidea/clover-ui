@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
-import { pxtovw } from '../_util'
+import { isColor, px2rem } from '../_util'
 
 export default class Icon extends Component {
   render() {
@@ -10,21 +10,28 @@ export default class Icon extends Component {
       style.backgroundImage = `url(${img})`
     }
     if (size) {
-      style.width = `${pxtovw(Number(size))}vw`
+      style.width = px2rem(size)
       style.height = style.width
+    }
+    if (color && isColor(color)) {
+      if (fill) {
+        style.backgroundColor = color
+        style.color = '#fff'
+      } else {
+        style.color = color
+      }
     }
     return (
       <i
+        style={style}
         className={classnames('icon', className, {
+          [`icon-${color}`]: color && !isColor(color),
           [`icon-${type}`]: type,
-          [`icon-${size}`]: size,
-          [`icon-${color}`]: color,
           'icon-fill': fill,
           'icon-img': img,
           'icon-circle': circle,
           'icon-radius': radius,
         })}
-        style={style}
       />
     )
   }

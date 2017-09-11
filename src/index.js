@@ -1,3 +1,4 @@
+import util from './_util'
 import Button from './Button'
 import Page from './Page'
 import Navbar from './Navbar'
@@ -7,8 +8,10 @@ import List from './List'
 import Badge from './Badge'
 import Rate from './Rate'
 import './theme/styles.less'
+import './_util/flexible'
 
 export default {
+  util,
   Page,
   Button,
   Navbar,

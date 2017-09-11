@@ -2,9 +2,7 @@ const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const autoprefixer = require('autoprefixer')
-const writesvg = require('postcss-write-svg')
-const adaptive = require('postcss-adaptive')
-const pxtoviewport = require('postcss-px-to-viewport')
+const pxtorem = require('postcss-pxtorem')
 
 const sourcePath = path.resolve(__dirname, 'src/example')
 const staticPath = path.resolve(__dirname, 'exampleDist')
@@ -54,14 +52,10 @@ module.exports = function (env) {
       loader: 'postcss-loader',
       options: {
         plugins: [
-          adaptive({
-            remUnit: 75,
-          }),
           autoprefixer(),
-          writesvg(),
-          pxtoviewport({
-            viewportWidth: 375,
-            viewportUnit: 'vmin',
+          pxtorem({
+            propList: ['*'],
+            rootValue: 75,
           }),
         ],
       },
