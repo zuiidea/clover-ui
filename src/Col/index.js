@@ -5,7 +5,7 @@ export default class Col extends Component {
   render() {
     const { className, children, span } = this.props
     return (
-      <div className={classnames('row', className, {
+      <div className={classnames(className, {
         [`col-${span}`]: span,
       })}
       >

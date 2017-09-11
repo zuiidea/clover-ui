@@ -32,9 +32,9 @@ export default class HomePage extends Component {
             Icon
             </Element>
           </Item>
-          <Item link="/icon" media={<Icon type="voice" {...iconProps} color="#4fa5f1" />}>
+          <Item link="/grid" media={<Icon type="voice" {...iconProps} color="#4fa5f1" />}>
             <Element type="Icon">
-            Icon
+            Grid
             </Element>
           </Item>
         </List>

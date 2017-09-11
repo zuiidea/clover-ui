@@ -7,6 +7,8 @@ import Icon from './Icon'
 import List from './List'
 import Badge from './Badge'
 import Rate from './Rate'
+import Col from './Col'
+import Row from './Row'
 import './theme/styles.less'
 import './_util/flexible'
 
@@ -20,4 +22,6 @@ export default {
   List,
   Badge,
   Rate,
+  Col,
+  Row,
 }

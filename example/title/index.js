@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Page, Navbar, ContentBlock } from 'clover-ui'
-import { Link } from 'react-router-dom'
+import { Link } from 'dva/router'
 
 export default class TitlePage extends Component {
   render() {
