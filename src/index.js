@@ -6,8 +6,7 @@ import Icon from './Icon'
 import List from './List'
 import Badge from './Badge'
 import Rate from './Rate'
-import './theme/index.less'
-import './_util/flexble'
+import './theme/styles.less'
 
 export default {
   Page,

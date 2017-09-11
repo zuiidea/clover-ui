@@ -4,7 +4,8 @@ import Icon from '../Icon'
 
 export default class Button extends Component {
   render() {
-    const { className, children, radius, fill, small, full, disabled, color = 'default', icon } = this.props
+    const { className, children, radius, fill,
+      small, full, disabled, color = 'default', icon } = this.props
     return (
       <div className={classnames('button', className, {
         'button-disabled': disabled,

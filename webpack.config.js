@@ -61,6 +61,7 @@ module.exports = function (env) {
           writesvg(),
           pxtoviewport({
             viewportWidth: 375,
+            viewportUnit: 'vmin',
           }),
         ],
       },

@@ -1,6 +1,6 @@
 {
   "name": "clover-ui",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "clover UI",
   "keywords": [
     "mobile",
@@ -40,6 +40,7 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.3.0",
+    "extract-text-webpack-plugin": "^3.0.0",
     "html-webpack-plugin": "^2.30.1",
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
@@ -54,8 +55,9 @@
   "scripts": {
     "start": "cross-env webpack-dev-server --env=development",
     "clean": "rimraf ./lib",
-    "build": "npm run clean & babel ./src --out-dir ./lib & gulp copy-less",
-    "build:example": "cross-env webpack --env=production"
+    "dist": "webpack --config webpack.config.dist.js",
+    "build:example": "cross-env webpack --env=production",
+    "build": "npm run clean & babel ./src --out-dir ./lib & gulp copy-less & npm run dist & npm run build:example"
   },
   "bugs": {
     "url": "https://github.com/zuiidea/clover-ui/issues"
