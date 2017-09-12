@@ -2,8 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const autoprefixer = require('autoprefixer')
-const writesvg = require('postcss-write-svg')
-const adaptive = require('postcss-adaptive')
+const pxtorem = require('postcss-pxtorem')
 
 const modulesPath = path.resolve(__dirname, 'node_modules')
 const staticPath = path.resolve(__dirname, 'dist')
@@ -25,9 +24,11 @@ module.exports = {
               loader: 'postcss-loader',
               options: {
                 plugins: [
-                  adaptive({ remUnit: 75 }),
                   autoprefixer(),
-                  writesvg(),
+                  pxtorem({
+                    propList: ['*'],
+                    rootValue: 75,
+                  }),
                 ],
               },
             },

@@ -1,3 +1,13 @@
+@hd: 1px; // 基本单位
+@prefix: clover-;
+
+// 色彩
+// ---
+// 文字色
+
+// 边框色
+@border-color-base: #e0e0e0;
+
 @red: #f44336;
 @pink: #e91e63;
 @purple: #9c27b0;
@@ -26,7 +36,73 @@
 @borderColor: #e0e0e0;
 @activeBgColor: rgba(0,0,0,0.05);
 @blockPadding: 26px;
-@icon-prefix: icon;
-@icon-url: "//at.alicdn.com/t/font_1475220190_186746";
 @primary: @orange;
 @secondary: @yellow;
+
+// base
+@transition-base: all .3s ease;
+
+// 全局/品牌色
+@brand-primary: @orange;
+@brand-secondary: @yellow;
+
+// 字体尺寸
+// ---
+@font-size-sm: 24 * @hd;
+@font-size-base: 28 * @hd;
+
+// 圆角
+// ---
+@radius-xs: 2 * @hd;
+@radius-sm: 4 * @hd;
+@radius-md: 6 * @hd;
+@radius-lg: 8 * @hd;
+@radius-xl: 200 * @hd;
+@radius-circle: 50%;
+
+// 边框尺寸
+// ---
+@border-width-base: 1PX;
+
+// 间距
+// ---
+// 水平间距
+@h-spacing-sm: 8 * @hd;
+@h-spacing-md: 16 * @hd;
+@h-spacing-md: 24 * @hd;
+@h-spacing-lg: 36 * @hd;
+@h-spacing-xl: 48 * @hd;
+
+// 垂直间距
+@v-spacing-xs: 8 * @hd;
+@v-spacing-sm: 16 * @hd;
+@v-spacing-md: 24 * @hd;
+@v-spacing-lg: 36 * @hd;
+@v-spacing-xl: 48 * @hd;
+
+// 组件变量
+// ---
+// button
+@button-height: 80 * @hd;
+@button-font-size: @font-size-base;
+
+@button-height-sm: 56 * @hd;
+@button-font-size-sm: @font-size-sm;
+
+@button-height-icon: 64 * @hd;
+@button-height-icon-sm: 54 * @hd;
+
+// icon
+@icon-prefix: icon;
+@icon-url: "//at.alicdn.com/t/font_1475220190_186746";
+
+// badge
+@badge-font-size: 20 * @hd;
+@badge-border-radius: 3 * @hd;
+@badge-line-height: 32 * @hd;
+@badge-padding: 4 * @hd 12 * @hd;
+
+@badge-font-size-sm: 16 * @hd;
+@badge-border-radius-sm: @radius-xs;
+@badge-line-height-sm: 28 * @hd;
+@badge-padding-sm: 0 * @hd 6 * @hd;

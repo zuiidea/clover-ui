@@ -1,0 +1,21 @@
+@import '~theme/vars';
+
+.page {
+  :global {
+    .@{prefix}row {
+      background-image: linear-gradient(90deg,#eee 5%, transparent 0,transparent 10%, #eee 0,#eee 15%, transparent 0,transparent 20%, #eee 0,#eee 25%, transparent 0,transparent 30%, #eee 0,#eee 35%, transparent 0,transparent 40%, #eee 0,#eee 45%, transparent 0,transparent 50%, #eee 0,#eee 55%, transparent 0,transparent 60%, #eee 0,#eee 65%, transparent 0,transparent 70%, #eee 0,#eee 75%, transparent 0,transparent 80%, #eee 0,#eee 85%, transparent 0,transparent 90%, #eee 0,#eee 95%, transparent 0,transparent 100%);
+      margin-bottom: 16px;
+
+        > [class*=~"@{prefix}col"] {
+        > div {
+          background-color: rgba(255, 166, 38, 0.55);
+          color: #fff;
+          text-align: center;
+          height: 64px;
+          line-height: 64px;
+          font-size: 28px;
+        }
+      }
+    }
+  }
+}

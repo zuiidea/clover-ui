@@ -7,4 +7,5 @@ const isColor = (str) => {
 export default {
   px2rem,
   isColor,
+  prefix: 'clover-',
 }

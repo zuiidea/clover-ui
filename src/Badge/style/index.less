@@ -1,26 +1,26 @@
 /* === Badge === */
 @import '../../theme/vars';
+@badgePrefixCls: ~"@{prefix}badge";
 
-.badge {
-  font-size: 20px;
+.@{badgePrefixCls} {
+  font-size: @badge-font-size;
   position: relative;
   display: inline-block;
   box-sizing: border-box;
-  padding: 4px 12px;
+  padding: @badge-padding;
   vertical-align: middle;
-  border-width: 1PX;
+  border-width: @border-width-base;
   border-style: solid;
-  border-radius: 3px;
-  line-height: 32px;
-  .component-color(badge, false);
+  border-radius: @badge-border-radius;
+  line-height: @badge-line-height;
+  .component-color(@badgePrefixCls, false);
 
-  &.badge-small {
-    font-size: 16px;
-    line-height: 1;
-    padding: 0 6px;
+  &-small {
+    font-size: @badge-font-size-sm;
+    padding: @badge-padding-sm;
     vertical-align: middle;
     white-space: nowrap;
-    border-radius: 2px;
-    line-height: 28px;
+    border-radius: @badge-border-radius-sm;
+    line-height: @badge-line-height-sm;
   }
 }

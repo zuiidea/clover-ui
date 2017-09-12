@@ -2,38 +2,45 @@ import React, { Component } from 'react'
 import classnames from 'classnames'
 import { darken } from 'polished'
 import Icon from '../Icon'
-import { isColor } from '../_util'
+import { prefix, isColor } from '../_util'
 
 export default class Button extends Component {
+  static defaultProps = {
+    prefixCls: `${prefix}button`,
+    color: 'default',
+  }
   render() {
-    const { className, children, radius, fill,
-      small, full, disabled, color = 'default', icon } = this.props
+    const { className, style, children, prefixCls, radius, fill,
+      small, full, disabled, color, icon } = this.props
 
-    const style = {}
+    const newStyle = {}
 
     if (color && isColor(color)) {
       if (fill) {
-        style.color = '#fff'
-        style.borderColor = darken(0.05, color)
-        style.backgroundColor = color
+        newStyle.color = '#fff'
+        newStyle.borderColor = darken(0.05, color)
+        newStyle.backgroundColor = color
       } else {
-        style.color = color
-        style.borderColor = color
-        style.backgroundColor = 'transparent'
+        newStyle.color = color
+        newStyle.borderColor = color
+        newStyle.backgroundColor = 'transparent'
       }
     }
     return (
       <div
-        style={style}
-        className={classnames('button', className, {
-          [`button-${color}`]: color && !isColor(color),
-          'button-disabled': disabled,
-          'button-fill': fill,
-          'button-small': small,
-          'button-radius': radius,
-          'button-full': full,
-          'button-icon': icon,
+        className={classnames(prefixCls, className, {
+          [`${prefixCls}-${color}`]: color && !isColor(color),
+          [`${prefixCls}-disabled`]: disabled,
+          [`${prefixCls}-fill`]: fill,
+          [`${prefixCls}-small`]: small,
+          [`${prefixCls}-radius`]: radius,
+          [`${prefixCls}-full`]: full,
+          [`${prefixCls}-icon`]: icon,
         })}
+        style={{
+          ...newStyle,
+          ...style,
+        }}
       >
         {icon ? <Icon type={icon} /> : children }
       </div>

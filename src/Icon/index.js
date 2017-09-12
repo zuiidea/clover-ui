@@ -4,26 +4,25 @@ import { isColor, px2rem } from '../_util'
 
 export default class Icon extends Component {
   render() {
-    const { className, type, circle, img, radius, size, color = 'default', fill } = this.props
-    const style = {}
+    const { className, style, type, circle, img, radius, size, color = 'default', fill } = this.props
+    const newStyle = {}
     if (img) {
-      style.backgroundImage = `url(${img})`
+      newStyle.backgroundImage = `url(${img})`
     }
     if (size) {
-      style.width = px2rem(size)
-      style.height = style.width
+      newStyle.width = px2rem(size)
+      newStyle.height = newStyle.width
     }
     if (color && isColor(color)) {
       if (fill) {
-        style.backgroundColor = color
-        style.color = '#fff'
+        newStyle.backgroundColor = color
+        newStyle.color = '#fff'
       } else {
-        style.color = color
+        newStyle.color = color
       }
     }
     return (
       <i
-        style={style}
         className={classnames('icon', className, {
           [`icon-${color}`]: color && !isColor(color),
           [`icon-${type}`]: type,
@@ -32,6 +31,10 @@ export default class Icon extends Component {
           'icon-circle': circle,
           'icon-radius': radius,
         })}
+        style={{
+          ...newStyle,
+          ...style,
+        }}
       />
     )
   }

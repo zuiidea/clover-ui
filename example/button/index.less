@@ -1,16 +1,27 @@
+@import '~theme/vars';
+
 .page {
   :global {
-    .button {
+    .@{prefix}button  {
       margin-right: 16px;
     }
 
-    .button-full {
-      &+.button-full {
+    .@{prefix}button-full {
+      &+.@{prefix}button-full {
         margin-top: 16px;
       }
     }
 
     .buttons-row {
+      display: flex;
+      align-self: center;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      .@{prefix}button {
+        & + .@{prefix}button {
+          margin-left: 16px;
+        }
+      }
       &+.buttons-row {
         margin-top: 24px;
       }

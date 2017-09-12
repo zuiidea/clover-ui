@@ -1,5 +1,9 @@
 .component-color(@elementprefix, @active) {
   .element-color(@textColor,  @borderColor, @elementprefix, @active);
+  [data-dpr="3"] &{
+    .element-color(@textColor,  darken(@borderColor, 5%), @elementprefix, @active);
+  }
+
 
   &.@{elementprefix}-secondary {
     .element-color(@secondary,  @secondary, @elementprefix, @active);

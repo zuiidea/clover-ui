@@ -1,61 +1,10 @@
-/* === Grid === */
+/* === Row === */
 @import '../../theme/vars';
+@rowPrefixCls: ~"@{prefix}row";
 
-.row {
+.@{rowPrefixCls} {
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
   align-items: flex-start;
-
-  > [class*="col-"] {
-    box-sizing: border-box;
-  }
-}
-@cols: 5, 10, 15, 20, 25, 30, 100/3, 35, 40, 45, 50, 55, 60, 65, 100*(2/3), 70, 75, 80, 85, 90, 95, 100;
-
-.row {
-  .col-auto {
-    width: 100%;
-  }
-
-  .-(@i:length(@cols)) when (@i > 0) {
-    @divider: e(extract(@cols, @i));
-    @className: `Math.floor(@{divider})`;
-    @n: `100/parseFloat(@{divider})`;
-    @n-1: @n - 1;
-
-    .col-@{className} {
-      width: ~"@{divider}%";
-      width: ~"calc((100% - 16px*@{n-1}) / @{n})";
-    }
-
-    &.no-gutter {
-      .col-@{className} {
-        width: ~"@{divider}%";
-      }
-    }
-    .-((@i - 1));
-  }
-  .-;
-
-  .--(@j:1) when (@j < length(@cols)) {
-    @divider: e(extract(@cols, @j));
-    @className: `Math.floor(@{divider})`;
-
-    .col-auto:nth-last-child(@{j}),
-    .col-auto:nth-last-child(@{j}) ~ .col-auto {
-      @j-1: @j - 1;
-      width: 100% / @j;
-      width: ~"calc((100% - 16px*@{j-1}) / @{j})";
-    }
-
-    &.no-gutter {
-      .col-auto:nth-last-child(@{j}),
-      .col-auto:nth-last-child(@{j}) ~ .col-auto {
-        width: 100% / @j;
-      }
-    }
-    .--((@j + 1));
-  }
-  .--;
 }

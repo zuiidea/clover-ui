@@ -1,10 +1,17 @@
-
 .hairline-common(@color) {
-  content: '';
+  content: "";
   position: absolute;
   background-color: @color;
   display: block;
   z-index: 15;
+
+  [data-dpr="3"] &{
+    background-color: darken(@borderColor,5%);
+  }
+
+  [data-dpr="1"] & {
+    background-color: tint(@color,50%);
+  }
 }
 
 .hairline-horizontal(@color) {

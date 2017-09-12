@@ -1,26 +1,26 @@
-/* === Badge === */
+/* === Col === */
 @import '../../theme/vars';
+@colPrefixCls: ~"@{prefix}col";
 
-.badge {
-  font-size: 20px;
-  position: relative;
-  display: inline-block;
+@cols: 5, 10, 15, 20, 25, 30, 100/3, 35, 40, 45, 50, 55, 60, 65, 100*(2/3), 70, 75, 80, 85, 90, 95, 100;
+
+[class*=@{colPrefixCls}] {
   box-sizing: border-box;
-  padding: 4px 12px;
-  vertical-align: middle;
-  border-width: 1PX;
-  border-style: solid;
-  border-radius: 3px;
-  line-height: 32px;
-  .component-color(badge, false);
-
-  &.badge-small {
-    font-size: 16px;
-    line-height: 1;
-    padding: 4px 6px;
-    vertical-align: middle;
-    white-space: nowrap;
-    border-radius: 2px;
-    line-height: 28px;
-  }
 }
+
+.@{colPrefixCls}-auto {
+  width: 100%;
+}
+
+.-(@i:length(@cols)) when (@i > 0) {
+  @divider: e(extract(@cols, @i));
+  @className: `Math.floor(@{divider})`;
+  @n: `100/parseFloat(@{divider})`;
+  @n-1: @n - 1;
+
+  .@{colPrefixCls}-@{className} {
+    width: ~"@{divider}%";
+  }
+  .-((@i - 1));
+}
+.-;

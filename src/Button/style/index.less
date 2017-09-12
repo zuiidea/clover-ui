@@ -1,31 +1,31 @@
 /* === Buttons === */
 @import "../../theme/vars";
+@buttonPrefixCls: ~"@{prefix}button";
 
-.button {
+.@{buttonPrefixCls} {
+  height: @button-height;
+  line-height: @button-height - 2 * @border-width-base;
+  font-size: @button-font-size;
+  transition: @transition-base;
+  border-width: @border-width-base;
+  padding: 0 @h-spacing-xl;
+  border-radius: @radius-md;
   text-decoration: none;
   text-align: center;
   display: inline-block;
-  height: 80px;
-  line-height: 78px;
   box-sizing: border-box;
   appearance: none;
   margin: 0;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font-size: 28px;
-  font-family: inherit;
-  padding: 0 48px;
   position: relative;
   overflow: hidden;
-  outline: 0;
-  transition: 0.3s;
+  outline: 0 none;
   user-select: none;
-  border-width: 1PX;
   border-style: solid;
-  border-radius: 6px;
-  .component-color(button, true);
+  .component-color(@buttonPrefixCls, true);
   // disabled
-  &.button-disabled {
+  &&-disabled {
     &,
     &.active,
     &:active,
@@ -34,61 +34,34 @@
     }
   }
   // size
-  &.button-small {
-    height: 56px;
-    line-height: 54px;
-    font-size: 24px;
-    padding: 0 36px;
-    border-radius: 4px;
+  &-small {
+    height: @button-height-sm;
+    line-height: @button-height-sm - 2 * @border-width-base;
+    font-size: @button-font-size-sm;
+    padding: 0 @h-spacing-lg;
+    border-radius: @radius-sm;
   }
   // radius
-  &.button-radius {
-    border-radius: 160px;
-
-    &::after {
-      border-radius: 160px;
-    }
+  &-radius {
+    border-radius: @radius-xl;
   }
   // full
-  &.button-full {
+  &-full {
     width: 100%;
   }
 
-  &.button-icon {
-    width: 64px;
-    height: 64px;
-    line-height: 64px;
-    padding: 0;
-    border-radius: 50%;
+  &-icon {
+    width: @button-height-icon;
+    height: @button-height-icon;
+    line-height: @button-height-icon - 2 * @border-width-base;
+    border-radius: @radius-circle;
     color: darken(@textColor, 5%);
+    padding: 0;
 
-    &::after {
-      border-radius: 50%;
-      border-color: #999;
-    }
-
-    &:not(.button-disabled):active {
-      color: #fff;
-      background: darken(#fff, 20%);
-    }
-
-    &.button-small {
-      height: 54px;
-      width: 54px;
-      line-height: 54px;
-    }
-  }
-}
-
-.buttons-row {
-  display: flex;
-  align-self: center;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-
-  .button {
-    & + .button {
-      margin-left: 16px;
+    &.@{buttonPrefixCls}-small {
+      height: @button-height-icon-sm;
+      width: @button-height-icon-sm;
+      line-height: @button-height-icon-sm - 2 * @border-width-base;
     }
   }
 }

@@ -15,12 +15,14 @@ export default class Navbar extends Component {
     }
   }
   render() {
-    const { className, children, type, left, right } = this.props
+    const { className, style, children, type, left, right } = this.props
 
     return (
-      <div className={classnames('navbar', className, {
-        'navbar-secondary': type === 'secondary',
-      })}
+      <div
+        className={classnames('navbar', className, {
+          'navbar-secondary': type === 'secondary',
+        })}
+        style={style}
       >
         <div className="navbar-inner">
           {left && <div className="left">

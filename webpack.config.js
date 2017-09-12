@@ -116,6 +116,7 @@ module.exports = function (env) {
       ],
       alias: {
         'clover-ui': componentsPath,
+        theme: path.resolve(__dirname, 'src/theme'),
       },
     },
     devServer: {

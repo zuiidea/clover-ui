@@ -1,15 +1,22 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
+import { prefix } from '../_util'
 
 export default class Badge extends Component {
+  static defaultProps = {
+    prefixCls: `${prefix}badge`,
+    color: 'default',
+  }
   render() {
-    const { className, children, small, color = 'default', fill } = this.props
+    const { className, style, children, prefixCls, small, color, fill } = this.props
     return (
-      <span className={classnames('badge', className, {
-        'badge-small': small,
-        [`badge-${color}`]: color,
-        'badge-fill': fill,
-      })}
+      <span
+        className={classnames(prefixCls, className, {
+          [`${prefixCls}-small`]: small,
+          [`${prefixCls}-${color}`]: color,
+          [`${prefixCls}-fill`]: fill,
+        })}
+        style={style}
       >
         {children}
       </span>

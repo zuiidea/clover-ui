@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default class Item extends Component {
   render() {
-    const { className, children, link, media, extra } = this.props
+    const { className, style, children, link, media, extra } = this.props
     const content = [
       media ? <div className="item-media" key="media">
         {media}
@@ -17,7 +17,7 @@ export default class Item extends Component {
     ]
 
     return (
-      <li className={className}>
+      <li className={className} style={style}>
         {link ? <Link className="item-link item-content" to={link === true ? '#' : link}>
           {content}
         </Link> : <div className=" item-content">{content}</div>}

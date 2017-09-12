@@ -39,14 +39,14 @@ export default class ButtonPage extends Component {
           <Button radius small fill>small</Button>
         </ContentBlock>
         <ContentBlock title="icon">
-          <Button icon="up" small />
+          <Button icon="up" />
           <Button icon="down" />
           <Button icon="right" />
           <Button icon="left" />
           <Button icon="wifi" />
           <Button icon="comment" />
-          <Button icon="send" />
-          <Button icon="share" />
+          <Button icon="send" small />
+          <Button icon="share" small />
         </ContentBlock>
         <ContentBlock title="disabled">
           <Button disabled>disabled</Button>
