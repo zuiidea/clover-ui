@@ -11,6 +11,7 @@ import Col from './Col'
 import Row from './Row'
 import './theme/styles.less'
 import './_util/flexible'
+import './_util/hack'
 
 export default {
   util,

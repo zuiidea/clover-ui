@@ -1,6 +1,6 @@
 const px2rem = num => `${Number(num) / 75}rem`
 const isColor = (str) => {
-  str = str.toLocaleLowerCase(str)
+  str = str.toLocaleLowerCase()
   return str.startsWith('#') || str.startsWith('rgb') || str.startsWith('hsl')
 }
 
