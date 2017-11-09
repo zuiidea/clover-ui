@@ -31,10 +31,7 @@ export default class IconPage extends Component {
     ]
     let contentItem = []
     return (
-      <Page>
-        <Navbar type="secondary" >
-          Icon
-        </Navbar>
+      <Page header={<Navbar type="secondary" >Icon</Navbar>}>
         {
           icons.map((item, index) => {
             if (index % 5 === 0) {

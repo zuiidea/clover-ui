@@ -15,8 +15,6 @@ import './theme/styles.less'
 import './_util/flexible'
 import './_util/hack'
 
-console.log(Switch)
-
 export default {
   util,
   Page,

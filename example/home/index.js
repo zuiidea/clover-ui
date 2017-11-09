@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ContentBlock, List, Icon, Page } from 'clover-ui'
+import { ContentBlock, List, Icon, Page, Navbar } from 'clover-ui'
 import styles from './index.less'
 
 const Title = ContentBlock.Title
@@ -13,7 +13,7 @@ export default class SwitchPage extends Component {
       size: 42,
     }
     return (
-      <Page className={styles.home}>
+      <Page className={styles.home} header={<Navbar>Clover UI</Navbar>}>
         <Title>Basic</Title>
         <List>
           <Item link="/button" media={<Icon type="star" {...iconProps} color="primary" />}>

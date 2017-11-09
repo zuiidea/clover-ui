@@ -5,8 +5,7 @@ import styles from './index.less'
 export default class ButtonPage extends Component {
   render() {
     return (
-      <Page className={styles.page}>
-        <Navbar type="secondary">Button</Navbar>
+      <Page className={styles.page} header={<Navbar type="secondary">Button</Navbar>}>
         <ContentBlock title="default">
           <Button>Button</Button>
         </ContentBlock>

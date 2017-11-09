@@ -29,7 +29,7 @@ export default class Navbar extends Component {
             {left}
           </div>}
           <div className="center" onClick={this.handleClickCenter}>
-            <Icon type="left" />
+            {type === 'secondary' && <Icon type="left" />}
             {children}
           </div>
           {right && <div className="right">

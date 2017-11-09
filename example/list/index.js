@@ -9,10 +9,7 @@ const Title = ContentBlock.Title
 export default class ListPage extends Component {
   render() {
     return (
-      <Page className={styles.home}>
-        <Navbar type="secondary" >
-          List
-        </Navbar>
+      <Page className={styles.home} header={<Navbar type="secondary" >List</Navbar>}>
         <Title>Default</Title>
         <List>
           <Item media={<Icon type="star" />}>

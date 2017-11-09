@@ -3,6 +3,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const autoprefixer = require('autoprefixer')
 const pxtorem = require('postcss-pxtorem')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const sourcePath = path.resolve(__dirname, 'src/example')
 const staticPath = path.resolve(__dirname, 'exampleDist')
@@ -23,6 +24,10 @@ module.exports = function (env) {
         NODE_ENV: JSON.stringify(production ? 'production' : 'development'),
       },
     }),
+    new CopyWebpackPlugin([{
+      from: path.resolve(__dirname, 'example/public'),
+      to: staticPath,
+    }]),
   ]
 
   if (production) {

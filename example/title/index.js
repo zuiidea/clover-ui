@@ -5,8 +5,7 @@ import { Link } from 'dva/router'
 export default class TitlePage extends Component {
   render() {
     return (
-      <Page>
-        <Navbar>TitlePage</Navbar>
+      <Page header={<Navbar>TitlePage</Navbar>}>
         <ContentBlock>
           <p>
             <Link to="/button">button</Link>
