@@ -11,7 +11,7 @@
   position: relative;
   cursor: pointer;
   align-self: center;
-  border: solid 1PX #b2b2b2;
+  border: solid 1PX @border-color-base;
   border-radius: 40px;
 
 
@@ -32,17 +32,18 @@
 
     &::after {
       content: " ";
-      height: 30px;
-      width: 30px;
-      background: @primary;
-      border: solid 1PX darken(@primary, 5%);
+      height: 32px;
+      width: 32px;
+      background: @background-color-base-2;
+      border: solid 1PX @border-color-base;
       border-radius: 30px;
       position: absolute;
       z-index: 2;
-      top: -3px;
+      top: 4px;
       left: 0;
-      transform: translateX(0px);
+      transform: translateX(6px);
       transition-duration: 300ms;
+      box-sizing: border-box;
     }
   }
 
@@ -50,12 +51,11 @@
     display: none;
 
     &:checked + .@{switchPrefixCls}-checkbox {
-      background: rgba(33, 150, 243, 0.5);
 
       &::after {
-        -webkit-transform: translateX(32px);
-        transform: translateX(32px);
-        background: #2196f3;
+        background: @primary;
+        border-color: darken(@primary, 18%);
+        transform: translateX(34px);
       }
     }
   }
