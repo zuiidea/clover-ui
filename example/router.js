@@ -28,6 +28,10 @@ const Router = function ({ history, app }) {
       path: '/grid',
       component: () => import('./grid'),
     },
+    {
+      path: '/switch',
+      component: () => import('./switch'),
+    },
   ]
 
   return (
@@ -48,7 +52,6 @@ const Router = function ({ history, app }) {
               />
             ))
           }
-          {/* <Route component={error} /> */}
         </Switch>
       </App>
     </ConnectedRouter>

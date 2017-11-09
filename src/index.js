@@ -9,9 +9,13 @@ import Badge from './Badge'
 import Rate from './Rate'
 import Col from './Col'
 import Row from './Row'
+import Switch from './Switch'
+
 import './theme/styles.less'
 import './_util/flexible'
 import './_util/hack'
+
+console.log(Switch)
 
 export default {
   util,
@@ -25,4 +29,5 @@ export default {
   Rate,
   Col,
   Row,
+  Switch,
 }

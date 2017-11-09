@@ -5,7 +5,7 @@ import styles from './index.less'
 const Title = ContentBlock.Title
 const { Element, Item } = List
 
-export default class HomePage extends Component {
+export default class SwitchPage extends Component {
   render() {
     const iconProps = {
       fill: true,
@@ -28,13 +28,18 @@ export default class HomePage extends Component {
           </Item>
 
           <Item link="/icon" media={<Icon type="file" {...iconProps} color="secondary" />}>
-            <Element type="Icon">
+            <Element type="title">
             Icon
             </Element>
           </Item>
           <Item link="/grid" media={<Icon type="voice" {...iconProps} color="#4fa5f1" />}>
-            <Element type="Icon">
+            <Element type="title">
             Grid
+            </Element>
+          </Item>
+          <Item link="/switch" media={<Icon type="reply" {...iconProps} color="#e91e63" />}>
+            <Element type="title">
+            Switch
             </Element>
           </Item>
         </List>
