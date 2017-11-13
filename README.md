@@ -17,3 +17,5 @@ Go to  <http://localhost:8004>
 #### Compile
 
     yarn build
+
+    webhooktest
