@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
+import device from '../_util/device'
 
 export default class FlexibleView extends Component {
   constructor() {
@@ -23,7 +24,8 @@ export default class FlexibleView extends Component {
   handleTouchMove(e) {
     const touchMovePageY = e.touches[0].pageY
     const { scrollHeight, offsetHeight, scrollTop } = this.content
-    const ratio = ((touchMovePageY - this.touchStartPageY) / offsetHeight) * 0.15
+    const getRatio = x => (-x * x / 6 + 10 * x / 6) / 4
+    const ratio = getRatio(((touchMovePageY - this.touchStartPageY) / offsetHeight) * 0.15)
     if (scrollTop === 0) {
       this.setState({
         contentScaleY: 1 + ratio,
@@ -44,29 +46,35 @@ export default class FlexibleView extends Component {
     this.handleResetScaleY()
   }
 
-  handleScroll() {
+  handleScroll(e) {
+    const { disabled, onScroll } = this.props
     const { scrollHeight, offsetHeight, scrollTop } = this.content
-    if (scrollTop === 0) {
-      this.setState({
-        contentScaleY: 1.08,
-        pullDirection: 'down',
-        pullLoading: true,
-      })
+    const flexible = !disabled && device.android
+    console.log(e)
 
-      setTimeout(() => {
-        this.handleResetScaleY()
-      }, 200)
-    } else if ((offsetHeight + scrollTop === scrollHeight)
-    || (offsetHeight + scrollTop === scrollHeight - 1)) {
-      this.setState({
-        contentScaleY: 1.08,
-        pullDirection: 'up',
-        pullLoading: true,
-      })
+    if (flexible) {
+      if (scrollTop === 0) {
+        this.setState({
+          contentScaleY: 1.03,
+          pullDirection: 'down',
+          pullLoading: true,
+        })
 
-      setTimeout(() => {
-        this.handleResetScaleY()
-      }, 200)
+        setTimeout(() => {
+          this.handleResetScaleY()
+        }, 200)
+      } else if ((offsetHeight + scrollTop === scrollHeight)
+      || (offsetHeight + scrollTop === scrollHeight - 1)) {
+        this.setState({
+          contentScaleY: 1.03,
+          pullDirection: 'up',
+          pullLoading: true,
+        })
+
+        setTimeout(() => {
+          this.handleResetScaleY()
+        }, 200)
+      }
     }
   }
 
@@ -78,8 +86,20 @@ export default class FlexibleView extends Component {
   }
 
   render() {
-    const { className, style, children } = this.props
+    const { className, style, children, disabled } = this.props
     const { pullDirection, contentScaleY, pullLoading } = this.state
+    const flexible = !disabled && device.android
+    const contentStyle = flexible ? {
+      transform: `scaleY(${contentScaleY})`,
+      WebkitTransform: `scaleY(${contentScaleY})`,
+      transformOrigin: pullDirection === 'down' ? 'top' : 'bottom',
+      WebkitTransformOrigin: pullDirection === 'down' ? 'top' : 'bottom',
+      transitionTimingFunction: 'cubic-bezier(0.165, 0.84, 0.44, 1)',
+      WebkitTransitionTimingFunction: 'cubic-bezier(0.165, 0.84, 0.44, 1)',
+      transitionDuration: pullLoading ? '100ms' : '300ms',
+      WebkitTransitionDuration: pullLoading ? '100ms' : '300ms',
+      ...style,
+    } : {}
 
     return (
       <div
@@ -89,13 +109,7 @@ export default class FlexibleView extends Component {
         onTouchMove={this.handleTouchMove}
         onTouchEnd={this.handleTouchEnd}
         onScroll={this.handleScroll}
-        style={{
-          transform: `scaleY(${contentScaleY})`,
-          transformOrigin: pullDirection === 'down' ? 'top' : 'bottom',
-          transitionTimingFunction: 'cubic-bezier(0.165, 0.84, 0.44, 1)',
-          transitionDuration: pullLoading ? '100ms' : '300ms',
-          ...style,
-        }}
+        style={contentStyle}
       >
         {children}
       </div>
